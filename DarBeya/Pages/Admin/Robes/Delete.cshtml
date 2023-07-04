@@ -1,0 +1,52 @@
+﻿@page
+@model DarBeya.Pages.Admin.Robes.DeleteModel
+
+@{
+    ViewData["Title"] = "Supprimer";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Étes-vous sur de vouloir supprimer la robe ?</h3>
+<div>
+    <h4>Robe</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robe.nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robe.nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robe.prix)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robe.prix)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robe.taille)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robe.taille)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robe.type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robe.type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Robe.disponibilite)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Robe.disponibilite)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Robe.RobeID" />
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-page="./Index">Retour</a>
+    </form>
+</div>

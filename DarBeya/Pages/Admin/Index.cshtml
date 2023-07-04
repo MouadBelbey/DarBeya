@@ -1,0 +1,26 @@
+﻿@page
+@model DarBeya.Pages.Admin.IndexModel
+@{
+}
+
+
+<h1>Vous devez vous authentifier</h1>
+
+<br />
+
+@if (Model.afficherMessageErreur)
+{
+    <div class="alert alert-danger" role="alert">
+        ERREUR : Le compte est invalide !
+    </div>
+}
+
+
+<br />
+
+
+<form method="post">
+    <input type="text" name="username" placeholder="Login"><br /><br />
+    <input type="password" name="password" placeholder="Mot de passe"><br /><br />
+    <button>Se connecter</button>
+</form>

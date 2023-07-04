@@ -1,0 +1,95 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Contact</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient" style="--bs-bg-opacity: .3;">
+        <div class="container-fluid">
+            <a asp-page="Index" class="navbar-brand">DAR BEYA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a asp-page="Index" class="nav-link active" aria-current="page">Acceuil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a asp-page="CollectionRobes" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collection
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a asp-page="Gandouras" class="dropdown-item">Gandouras</a></li>
+                            <li><a asp-page="Caftans" class="dropdown-item">Caftans</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a asp-page="Tenues_2_pieces" class="dropdown-item">Tenues 2 pièces</a></li>
+                            <li><a asp-page="Robes_de_mariees" class="dropdown-item">Robes de mariées</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-page="Contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="contact">
+        <h1>Contact</h1>
+     
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card bg-light bg-gradien" style="--bs-bg-opacity: .4;">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Messenger</h5>
+                        <p class="card-text text-dark">Veuillez nous contacter par Messenger</p>
+                        <a href="http://m.me/Maison.Beya.1" class="btn contact-btn">Messenger</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card bg-light bg-gradien" style="--bs-bg-opacity: .4;">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Téléphone</h5>
+                        <p class="card-text text-dark">Veuillez nous contacter par téléphone au numero '514-991-5513'. Ou par whatsapp avec le lien dessous</p>
+                        <a href=" https://wa.me/15149915513" class="btn contact-btn">Whatsapp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card bg-light bg-gradien" style="--bs-bg-opacity: .4;">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Instagram</h5>
+                        <p class="card-text text-dark">N'hesitez pas a visiter notre page instagram cliquez sur le lien dessous</p>
+                        <a href="https://instagram.com/dar_beya_?igshid=MzNlNGNkZWQ4Mg==" class="btn contact-btn">Instagram</a>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+
+
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>
+
+

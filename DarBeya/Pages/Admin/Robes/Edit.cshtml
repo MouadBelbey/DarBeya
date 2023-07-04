@@ -1,0 +1,55 @@
+﻿@page
+@model DarBeya.Pages.Admin.Robes.EditModel
+
+@{
+    ViewData["Title"] = "Modifier";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Robe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Robe.RobeID" />
+            <div class="form-group">
+                <label asp-for="Robe.nom" class="control-label"></label>
+                <input asp-for="Robe.nom" class="form-control" />
+                <span asp-validation-for="Robe.nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Robe.prix" class="control-label"></label>
+                <input asp-for="Robe.prix" class="form-control" />
+                <span asp-validation-for="Robe.prix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Robe.taille" class="control-label"></label>
+                <input asp-for="Robe.taille" class="form-control" />
+                <span asp-validation-for="Robe.taille" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Robe.type" class="control-label"></label>
+                <input asp-for="Robe.type" class="form-control" />
+                <span asp-validation-for="Robe.type" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Robe.disponibilite" /> @Html.DisplayNameFor(model => model.Robe.disponibilite)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Retour</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@page
+@model DarBeya.Pages.Admin.Robes.IndexModel
+
+@{
+    ViewData["Title"] = "Administration des Robes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-page="Create">Nouveau</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Robe[0].nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Robe[0].prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Robe[0].taille)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Robe[0].type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Robe[0].disponibilite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Robe) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taille)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.disponibilite)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RobeID">Modifier</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RobeID">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

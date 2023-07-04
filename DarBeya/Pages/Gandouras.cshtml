@@ -1,0 +1,109 @@
+﻿@page
+@model DarBeya.Pages.CollectionRobesModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Collection Dar Beya</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient" style="--bs-bg-opacity: .3;">
+        <div class="container-fluid">
+            <a asp-page="Index" class="navbar-brand">DAR BEYA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a asp-page="Index" class="nav-link active" aria-current="page">Acceuil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a asp-page="CollectionRobes" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collection
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a asp-page="Gandouras" class="dropdown-item">Gandouras</a></li>
+                            <li><a asp-page="Caftans" class="dropdown-item">Caftans</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a asp-page="Tenues_2_pieces" class="dropdown-item">Tenues 2 pièces</a></li>
+                            <li><a asp-page="Robes_de_mariees" class="dropdown-item">Robes de mariées</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-page="Contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gandouras">
+        <h1>DAR BEYA</h1>
+        <h3>Collection 2023</h3>
+
+
+        <div id="carousel-1" class="carousel slide gandoura-carousel" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active c-item">
+                    <img src="/images/Dar Beya (36).png" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <img src="/images/Dar Beya (36).png" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item c-item">
+                    <img src="/images/Dar Beya (36).png" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+
+       
+     
+
+
+        <a class="button" asp-page="CollectionRobes">Retour au menu</a>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

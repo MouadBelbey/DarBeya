@@ -1,0 +1,125 @@
+﻿@page
+@model DarBeya.Pages.CollectionRobesModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Collection Dar Beya</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient" style="--bs-bg-opacity: .3;">
+        <div class="container-fluid">
+            <a asp-page="Index" class="navbar-brand">DAR BEYA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a asp-page="Index" class="nav-link active" aria-current="page">Acceuil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a asp-page="CollectionRobes" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collection
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a asp-page="Gandouras" class="dropdown-item">Gandouras</a></li>
+                            <li><a asp-page="Caftans" class="dropdown-item">Caftans</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a asp-page="Tenues_2_pieces" class="dropdown-item">Tenues 2 pièces</a></li>
+                            <li><a asp-page="Robes_de_mariees" class="dropdown-item">Robes de mariées</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-page="Contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="collection">
+        <h1>DAR BEYA</h1>
+        <h3>Collection 2023</h3>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/images/Dar Beya (36).png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Gandouras</h5>
+                            <p class="card-text">La gandoura algérienne, avec ses couleurs vives et son tissu léger, incarne l'élégance traditionnelle de l'Algérie depuis des siècles.</p>
+                            <a asp-page="Gandouras" class="btn">Voir la collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/images/1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tenues 2 pièces</h5>
+                            <p class="card-text">La gandoura algérienne, avec ses couleurs vives et son tissu léger, incarne l'élégance traditionnelle de l'Algérie depuis des siècles.</p>
+                            <a asp-page="Tenues_2_pieces" class="btn">Voir la collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/images/DAR BEYA (88).png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Caftans</h5>
+                            <p class="card-text">La gandoura algérienne, avec ses couleurs vives et son tissu léger, incarne l'élégance traditionnelle de l'Algérie depuis des siècles.</p>
+                            <a asp-page="Caftans" class="btn">Voir la collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="/images/Lidia 1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Robes de mariées</h5>
+                            <p class="card-text">La gandoura algérienne, avec ses couleurs vives et son tissu léger, incarne l'élégance traditionnelle de l'Algérie depuis des siècles.</p>
+                            <a asp-page="Robes_de_mariees" class="btn">Voir la collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        
+        <a class="button" asp-page="Index">Retour à l'acceuil</a>
+    </div>
+    
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>
+
+<!--
+             <ul>
+        @foreach (var robe in Model.Robe)
+        {
+                     <li>@robe.nom - @robe.prix $</li>
+        }
+         </ul>
+       --> 
