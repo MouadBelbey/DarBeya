@@ -9,7 +9,7 @@
 body {
     font-family: 'Bodoni Moda', serif;
     font-size: 15px;
-    color: #EDDBC7;
+    color: black;
     line-height: 1.6;
     background-image: url("/images/BGIMG.jpeg");
     background-repeat: no-repeat;
@@ -98,7 +98,6 @@ body {
 .btn {
     font-size: 15px;
     backdrop-filter: blur(5px);
-    color: #E7AB79;
     text-decoration: none;
     border: #E7AB79 1px solid;
     padding: 10px 20px;
@@ -118,12 +117,7 @@ body {
 }
 
 .collection .card-body h5 {
-    color: #A7727D;
     font-weight: bold;
-}
-
-.collection .card-body p {
-    color: #A7727D;
 }
 
 .collection .card img {
@@ -142,7 +136,7 @@ body {
 
 /********************* GANDOURAS SECTION **********************************/
 
-.gandouras {
+.display_section {
     
     display: flex;
     flex-direction: column;
@@ -153,65 +147,10 @@ body {
     margin-top: 20px;
 }
 
-.gandoura-carousel {
+.display_section-carousel {
     width: 70%;
     margin-bottom: 20px;
 }
-
-/********************* CAFTANS SECTION **********************************/
-
-.caftans {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.caftan-carousel {
-    width: 70%;
-    height: 50%;
-    margin-bottom: 20px;
-}
-
-/********************* GANDOURAS SECTION **********************************/
-
-.mariees {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.mariee-carousel {
-    width: 70%;
-    height: 50%;
-    margin-bottom: 20px;
-}
-
-/********************* GANDOURAS SECTION **********************************/
-
-.tenues_2_pieces {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    margin-top: 20px;
-}
-
-.tenue_2_piece-carousel {
-    width: 70%;
-    height: 50%;
-    margin-bottom: 20px;
 }
 
 /********************* CONTACT SECTION **********************************/
@@ -291,7 +230,7 @@ body {
     /********************* COLLECTION ROBES **********************************/
 
     .collection {
-
+        padding: 0 60px;
     }
 
     .collection h1 {
@@ -303,19 +242,14 @@ body {
         margin-bottom: 15px;
     }
 
-    .collection .card-div {
-        width: 100%;
-    }
-
     /********************* CONTACT **********************************/
 
     .contact {
         margin-top: 20px;
-        width: 300px;
     }
 
     .contact .card {
-        margin-bottom: 100%;
+        margin-bottom: 15px;
     }
 
     .contact h1 {
@@ -341,13 +275,22 @@ body {
         transition-duration: 1s;
     }
 
+    .contact h6 {
+        font-weight: bold;
+    }
+
     .contact h5 {
         font-size: 40px;
     }
 
     .contact p {
-        font-size: 23px;
+        font-size: 15px;
         color: dimgrey;
-        font-weight: 600;
+    }
+
+    /********************* GANDOURAS **********************************/
+
+    .display_section .carousel {
+        width: 100%;
     }
 }
