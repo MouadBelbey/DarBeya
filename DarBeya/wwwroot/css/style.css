@@ -270,11 +270,11 @@ body {
 @media (max-width: 576px) {
 
     #acceuil {
-        margin-top: 500px;
+        margin-top: 300px;
     }
 
     #acceuil h1 {
-        font-size: 5em;
+        font-size: 4em;
         font-weight: 600;
         margin-bottom: 0px;
         margin-top: 10px;
@@ -282,13 +282,17 @@ body {
     }
 
     #acceuil a {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: 400; 
         margin-top: 0px;
         color: black;
     }
 
     /********************* COLLECTION ROBES **********************************/
+
+    .collection {
+
+    }
 
     .collection h1 {
         margin-bottom: 0px;
@@ -297,24 +301,21 @@ body {
 
     .collection .card {
         margin-bottom: 15px;
-        width: 450px;
     }
 
     .collection .card-div {
-        padding-left: 35px;
+        width: 100%;
     }
 
     /********************* CONTACT **********************************/
 
     .contact {
-        width: 480px;
-        padding-left: 60px;
-        padding-right: 0px;
         margin-top: 20px;
+        width: 300px;
     }
 
     .contact .card {
-        margin-bottom: 20px;
+        margin-bottom: 100%;
     }
 
     .contact h1 {
