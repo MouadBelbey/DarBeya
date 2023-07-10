@@ -156,8 +156,6 @@ body {
 /********************* CONTACT SECTION **********************************/
 
 
-.contact-container {
-}
 
 .contact {
     display: flex;
@@ -186,22 +184,93 @@ body {
 
 /********************* MEDIA QUERIES SECTION **********************************/
 
-@media (max-width: 992px) {
-
-
-    #acceuil h1 {
-        font-size: 2em;
-    }
-}
-
 /********************* MEDIA QUERIES SECTION FOR TABLET **********************************/
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 
+    #acceuil {
+        margin-top: 300px;
+    }
 
     #acceuil h1 {
-        font-size: 2em;
+        font-size: 4em;
+        margin-bottom: 0;
+        font-weight: 600;
     }
+
+    #acceuil a {
+        margin-top: 0;
+        color: black;
+        font-size: 25px;
+    }
+
+    /********************* COLLECTION ROBES **********************************/
+
+    .collection {
+        padding: 0 147px;
+    }
+
+    .collection h1 {
+        margin-bottom: 0px;
+        font-size: 3rem;
+    }
+
+    .collection .card {
+        margin-bottom: 15px;
+    }
+
+    /********************* DISPLAY SECTION **********************************/
+
+    .display_section .carousel {
+        width: 80%;
+    }
+
+    /********************* CONTACT **********************************/
+
+    .contact {
+        padding: 0 200px;
+    }
+
+    .grid-card {
+        margin-bottom: 10px;
+    }
+
+    .contact h1 {
+        font-size: 5rem;
+    }
+
+    .contact-btn {
+        font-size: 20px;
+        font-weight: 600;
+        backdrop-filter: blur(5px);
+        color: black;
+        text-decoration: none;
+        border: black 1px solid;
+        padding: 10px 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+        background: black;
+        color: #fff;
+        transition-duration: 1s;
+    }
+
+    .contact h6 {
+        font-weight: bold;
+    }
+
+    .contact h5 {
+        font-size: 40px;
+    }
+
+    .contact p {
+        font-size: 15px;
+        color: dimgrey;
+    }
+
 }
 
 /********************* MEDIA QUERIES SECTION FOR MOBILE **********************************/
@@ -246,6 +315,7 @@ body {
 
     .contact {
         margin-top: 20px;
+        padding: 0 50px;
     }
 
     .contact .card {
@@ -288,7 +358,7 @@ body {
         color: dimgrey;
     }
 
-    /********************* GANDOURAS **********************************/
+    /********************* DISPLAY SECTION **********************************/
 
     .display_section .carousel {
         width: 100%;
