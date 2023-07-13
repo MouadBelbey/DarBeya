@@ -1,4 +1,6 @@
-﻿body {
+﻿
+
+body {
     font-family: 'Bodoni Moda', serif;
     font-size: 15px;
     color: black;
@@ -176,7 +178,12 @@
     font-size: 18px;
 }
 
-/********************* DISPLAY SECTION **********************************/
+/********************* FOOTER SECTION **********************************/
+
+footer {
+    position: relative;
+    top: 50px;
+}
 
 .footer-fa {
     text-decoration: none;
