@@ -228,11 +228,17 @@ body {
     /********************* CONTACT **********************************/
 
     .contact {
-        padding: 0 200px;
+        align-content: center; 
+    }
+
+    .contact-row {
+        flex-direction: column;
+        align-items: center;
     }
 
     .grid-card {
         margin-bottom: 10px;
+        width: 60%;
     }
 
     .contact h1 {
@@ -315,7 +321,11 @@ body {
 
     .contact {
         margin-top: 20px;
-        padding: 0 50px;
+    }
+
+    .contact-row {
+        flex-direction: column;
+        align-items: center;
     }
 
     .contact .card {
