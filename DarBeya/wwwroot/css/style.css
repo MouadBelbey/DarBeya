@@ -221,8 +221,8 @@ footer {
 
     /********************* COLLECTION ROBES **********************************/
 
-    .collection {
-        padding: 0 147px;
+    .collection-container {
+        width: 100%;
     }
 
     .collection h1 {
