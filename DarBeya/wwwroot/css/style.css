@@ -1,12 +1,4 @@
-﻿/* ALL */
-
-* {
-    margin: 0;
-    padding: 0;
-    
-}
-
-body {
+﻿body {
     font-family: 'Bodoni Moda', serif;
     font-size: 15px;
     color: black;
@@ -15,6 +7,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /****************************** Page d'acceuil ***************************/
