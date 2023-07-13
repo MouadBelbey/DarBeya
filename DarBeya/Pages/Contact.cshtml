@@ -12,13 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/style.css" />
     <title>Contact</title>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient" style="--bs-bg-opacity: .3;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
         <div class="container-fluid">
             <a asp-page="Index" class="navbar-brand">DAR BEYA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +60,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-dark">Messenger</h5>
                         <p class="card-text text-dark">Veuillez nous contacter par Messenger</p>
-                        <a href="http://m.me/Maison.Beya.1" class="btn contact-btn">Messenger</a>
+                        <a href="http://m.me/Maison.Beya.1" class="btn contact-btn" target="_blank">Messenger</a>
                     </div>
                 </div>
             </div>
@@ -70,8 +71,8 @@
                 <div class="card bg-light bg-gradien" style="--bs-bg-opacity: .5;">
                     <div class="card-body">
                         <h5 class="card-title text-dark">Instagram</h5>
-                        <p class="card-text text-dark">N'hesitez pas a visiter notre page instagram</p>
-                        <a href="https://instagram.com/dar_beya_?igshid=MzNlNGNkZWQ4Mg==" class="btn contact-btn">Instagram</a>
+                        <p class="card-text text-dark">Visiter notre page instagram</p>
+                        <a href="https://instagram.com/dar_beya_?igshid=MzNlNGNkZWQ4Mg==" class="btn contact-btn" target="_blank">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +82,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-dark">Téléphone</h5>
                         <p class="card-text text-dark">Veuillez nous contacter par Whatsapp</p>
-                        <a href=" https://wa.me/15149915513" class="btn contact-btn">Whatsapp</a>
+                        <a href=" https://wa.me/15149915513" class="btn contact-btn" target="_blank">Whatsapp</a>
                     </div>
                 </div>
             </div>
@@ -90,11 +91,24 @@
 
     </div>
 
+    <footer class="bg-dark py-5 mt-5">
+        <div class="footer-container container text-light text-center">
+            <p class="display-5 mb-3">Dar Beya</p>
+            <h6>Follow us on</h6>
+            <p class="socials">
+                <a href="" class="footer-fa" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://instagram.com/dar_beya_?igshid=MzNlNGNkZWQ4Mg==" class="footer-fa" target="_blank"><i class="fa fa-instagram"></i></a>
+            </p>
+            <small class="text-white-50">&copy; 2023 - DarBeya -</small>
+        </div>
+    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
+
 </html>
 
 

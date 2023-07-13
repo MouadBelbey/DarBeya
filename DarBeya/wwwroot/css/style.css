@@ -134,7 +134,7 @@ body {
 }
 
 
-/********************* GANDOURAS SECTION **********************************/
+/********************* DISPLAY SECTION **********************************/
 
 .display_section {
     
@@ -180,7 +180,19 @@ body {
     font-size: 18px;
 }
 
+/********************* DISPLAY SECTION **********************************/
 
+.footer-fa {
+    text-decoration: none;
+    color: #fff;
+    line-height: 2.5;
+    font-weight: 100;
+}
+
+.footer-fa i {
+    font-size: 18px;
+    margin-right: 15px;
+}
 
 /********************* MEDIA QUERIES SECTION **********************************/
 
