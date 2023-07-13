@@ -93,23 +93,6 @@ body {
     transition-duration: 1s;
 }
 
-.btn {
-    font-size: 15px;
-    backdrop-filter: blur(5px);
-    text-decoration: none;
-    border: #E7AB79 1px solid;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #E7AB79;
-    color: #fff;
-    transition-duration: 1s;
-}
-
 .collection .card {
     background-color: #EDDBC7;
 }
@@ -260,25 +243,6 @@ footer {
         font-size: 5rem;
     }
 
-    .contact-btn {
-        font-size: 20px;
-        font-weight: 600;
-        backdrop-filter: blur(5px);
-        color: black;
-        text-decoration: none;
-        border: black 1px solid;
-        padding: 10px 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .contact-btn:hover {
-        background: black;
-        color: #fff;
-        transition-duration: 1s;
-    }
-
     .contact h6 {
         font-weight: bold;
     }
@@ -349,25 +313,6 @@ footer {
 
     .contact h1 {
         font-size: 4rem;
-    }
-
-    .contact-btn {
-        font-size: 20px;
-        font-weight: 600;
-        backdrop-filter: blur(5px);
-        color: black;
-        text-decoration: none;
-        border: black 1px solid;
-        padding: 10px 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .contact-btn:hover {
-        background: black;
-        color: #fff;
-        transition-duration: 1s;
     }
 
     .contact h6 {
