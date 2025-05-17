@@ -5,41 +5,95 @@ import AccessoireCardsGallery from '../../components/Cards-gallery/Accessoire_Ca
 import axios from 'axios';
 import Navbar from "../../components/Navbar/Navbar";
 import { getFullApiUrl } from '../../utils/apiUtils';
-let imagesArray = [];
 
 function Accessoires() {
   const [accessoiresData, setAccessoiresData] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [filters, setFilters] = useState({
+    type: 'all'
+  });
+  
   useEffect(() => {
     // Fetch data from the server
-    axios.get('http://localhost:5000/accessoires') // Make a GET request to '/accessoires'
+    setIsLoading(true);
+    axios.get('http://localhost:5000/accessoires')
       .then((response) => {
-        // Handle the response data
-        setAccessoiresData(response.data);        // Update imagesArray
-        imagesArray = response.data.map((accessory) => ({
-          id: accessory.accessoire_id,
-          src: accessory.images && accessory.images.length > 0 ? getFullApiUrl(accessory.images[0].imageUrl) : '',
-          title: accessory.name,
-          alt: accessory.name,
-          description: accessory.description,
-          carouselImages: accessory.images ? accessory.images.map((image) => getFullApiUrl(image.imageUrl)) : [],
-        }));
+        setAccessoiresData(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
+        setIsLoading(false);
       });
   }, []);
 
+  // Process data for gallery display
+  const accessoiresGalleryData = accessoiresData.map((accessory) => ({
+    id: accessory.accessoire_id,
+    src: accessory.images && accessory.images.length > 0 ? getFullApiUrl(accessory.images[0].imageUrl) : '',
+    title: accessory.name,
+    alt: accessory.name,
+    description: accessory.description,
+    carouselImages: accessory.images ? accessory.images.map((image) => getFullApiUrl(image.imageUrl)) : [],
+  }));
+
+  // Get unique types for filter
+  const types = [...new Set(accessoiresData
+    .filter(accessory => accessory.description)
+    .map(accessory => accessory.description))];
+
+  // Filter accessories based on selected filters
+  const filteredAccessoires = accessoiresGalleryData.filter(accessory => {
+    return (filters.type === 'all' || accessory.description === filters.type);
+  });
+
+  const handleFilterChange = (value) => {
+    setFilters({
+      type: value
+    });
+  };
 
   return (
-    <div className='container-fluid'>
-        <Navbar/>
-      <div className="heading text-center">
-                <h2>Accessoires</h2>
-                <p>Découvrez nos accessoires élégant et traditionnelles</p>
+    <div className='page-container'>
+      <Navbar/>
+      <div className="product-page-container">
+        <div className="product-hero accessory-hero">
+          <div className="product-hero-content">
+            <h1>Accessoires Traditionnels</h1>
+            <p>Complétez votre tenue avec notre sélection d'accessoires magnifiques et authentiques pour sublimer votre look.</p>
+          </div>
         </div>
-        <AccessoireCardsGallery images={imagesArray}/>
-        <Footer />
+        
+        <div className="container">
+          <div className="filter-section">
+            <div className="filter-group">
+              <label>Type</label>
+              <select 
+                onChange={(e) => handleFilterChange(e.target.value)}
+                value={filters.type}
+              >
+                <option value="all">Tous les types</option>
+                {types.map(type => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {isLoading ? (
+            <div className="loading-indicator">
+              <div className="spinner"></div>
+              <p>Chargement de nos accessoires...</p>
+            </div>
+          ) : (
+            <>
+              <p className="results-count">{filteredAccessoires.length} accessoire(s) trouvé(s)</p>
+              <AccessoireCardsGallery images={filteredAccessoires} />
+            </>
+          )}
+        </div>
+      </div>
+      <Footer />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-.container-fluid {
+.page-container {
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
@@ -7,6 +7,102 @@
     padding: 0; 
 }
 
-.heading {
-    padding: 40px;
+.product-page-container {
+    flex: 1;
+}
+
+.product-hero {
+    background: linear-gradient(rgba(82, 47, 52, 0.8), rgba(82, 47, 52, 0.8)), url('../../assets/image-acceuil.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.product-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.product-hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+}
+
+.product-hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--neutral-light);
+    border-radius: var(--border-radius-md);
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-dark);
+}
+
+.filter-group select {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--neutral-medium);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--background-light);
+    font-family: var(--font-family-secondary);
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(82, 47, 52, 0.1);
+}
+
+.results-count {
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-dark);
+    font-weight: var(--font-weight-medium);
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xxl) 0;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--neutral-light);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }

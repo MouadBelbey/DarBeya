@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import { AuthProvider, AuthContext } from "./pages/Login/AuthContext"; // Import AuthProvider and AuthContext
+import "./styles/global.css"; // Import des styles globaux
 import App from "./pages/Acceuil/App";
 import Contact from "./pages/Contact/Contact";
 import Robes from "./pages/Robes/Robes";

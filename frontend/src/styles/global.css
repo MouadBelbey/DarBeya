@@ -1,0 +1,245 @@
+/* Import des variables */
+@import url('./variables.css');
+
+/* Import des polices */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* Styles de base */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-secondary);
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-family-secondary);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Classes utilitaires */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: var(--border-width) solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Formulaires */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  font-family: var(--font-family-secondary);
+  border: var(--border-width) solid var(--neutral-medium);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--background-light);
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(82, 47, 52, 0.1); /* Basé sur --primary-color */
+}
+
+/* Cards */
+.card {
+  background-color: var(--background-light);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-medium);
+  overflow: hidden;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-heavy);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: var(--spacing-lg);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.card-text {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-slow);
+}
+
+/* Media queries */
+@media (max-width: var(--breakpoint-sm)) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
