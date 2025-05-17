@@ -1,0 +1,27 @@
+.container-fluid404{
+    background-color: antiquewhite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.messageErreur{
+    text-align: center;
+    margin-top: 15%;
+}
+
+.logo{
+    max-width: 25%;
+    max-height: 25%;
+}
+
+.Footer-container404, .NavBar-container404{
+    width: 100%;
+}
+h1{
+    font-size: 14vh;
+}

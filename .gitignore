@@ -1,0 +1,48 @@
+# Node.js
+node_modules/
+
+# React
+build/
+dist/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Visual Studio Code
+.vscode/
+
+# Editor directories and files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Tests
+__tests__/
+test/
+
+# Output of 'npm pack'
+*.tgz
+
+# Temporary files
+*.swp
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Precompiled binary addons
+*.node
+

@@ -1,0 +1,14 @@
+#LoginContainer{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.myInput .form-outline .form-control:focus~.form-notch .form-notch-leading,
+.myInput .form-outline .form-control:focus~.form-notch .form-notch-trailing,
+.myInput .form-outline .form-control:focus~.form-notch .form-notch-bottom {
+    border-color: #332D2D !important;
+}
+
+.myInput .form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-bottom-color: #332D2D !important;
+}
+
+

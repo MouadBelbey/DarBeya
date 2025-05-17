@@ -1,0 +1,28 @@
+.ModificationAccessoireContainer {
+    font-family: Arial, Helvetica, sans-serif;   
+    flex-grow: 1;
+  }
+  
+  .ModificationAccessoireContainer .mb-4 .form-outline .form-control:focus ~ .form-notch .form-notch-leading,
+  .ModificationAccessoireContainer .mb-4 .form-outline .form-control:focus ~ .form-notch .form-notch-trailing,
+  .ModificationAccessoireContainer .mb-4 .form-outline .form-control:focus ~ .form-notch .form-notch-bottom {
+    border-color: #332D2D !important;
+  }
+  
+  .ModificationAccessoireContainer .mb-4 .form-outline .form-control:focus ~ .form-notch .form-notch-middle {
+    border-bottom-color: #332D2D !important;
+  }
+  .ModificationAccessoireContainer h1 {
+    text-align: center;
+    white-space: nowrap;
+}
+.Footer {
+  margin-top: auto;
+}
+.big-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+  

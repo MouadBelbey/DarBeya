@@ -1,0 +1,71 @@
+
+
+.content{
+  margin: 0 ;
+  position: relative;
+
+
+
+ }
+
+ .robe-titre, .accessoire-titre{
+  border : 1px solid black;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+
+
+.button-robe, .button-accessoire{
+  position: absolute;
+  right: 10px;
+}
+
+.button-action{
+  display:flex;
+  width: 200px;
+  height: 30px;
+
+}
+
+.action-accessoire{
+  display:flex;
+  width: 200px;
+  height: 30px;
+}
+
+.supprimer, .modifier{
+  flex:1;
+  height:100%;
+}
+
+.modifier button{
+  background-color: white;
+  color:black;
+}
+
+
+.supprimer-accessoire, .modifier-accessoire{
+  flex:1;
+  height:100%;
+}
+
+.modifier-accessoire button{
+  background-color: white;
+  color:black;
+}
+
+
+
+
+.accessoire{
+ margin-top: 3em;
+}
+
+
+ 
+
+
+
+

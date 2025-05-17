@@ -1,0 +1,14 @@
+.ModificationRobeContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.ModificationRobeContainer .myInput .form-outline .form-control:focus ~ .form-notch .form-notch-leading,
+.ModificationRobeContainer .myInput .form-outline .form-control:focus ~ .form-notch .form-notch-trailing,
+.ModificationRobeContainer .myInput .form-outline .form-control:focus ~ .form-notch .form-notch-bottom {
+  border-color: #332D2D !important;
+}
+
+.ModificationRobeContainer .myInput .form-outline .form-control:focus ~ .form-notch .form-notch-middle {
+  border-bottom-color: #332D2D !important;
+}
