@@ -1,6 +1,9 @@
-#LoginContainer{
+#RegistrationContainer{
     font-family: Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
 }
+
 .myInput .form-outline .form-control:focus~.form-notch .form-notch-leading,
 .myInput .form-outline .form-control:focus~.form-notch .form-notch-trailing,
 .myInput .form-outline .form-control:focus~.form-notch .form-notch-bottom {
@@ -9,6 +12,35 @@
 
 .myInput .form-outline .form-control:focus~.form-notch .form-notch-middle {
     border-bottom-color: #332D2D !important;
+}
+
+/* Styles pour le formulaire d'inscription */
+.alert {
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Styles pour les liens */
+a {
+    color: #332D2D;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 

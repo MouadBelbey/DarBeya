@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext'; // Make sure to create this context as shown previously
 import Logo from '../../assets/logo.png';
-import { MDBContainer, MDBInput, MDBCheckbox, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import { encryptPassword } from '../../utils/cryptoUtils';
 
 
 function App() {
@@ -15,19 +16,18 @@ function App() {
   const [loginStatus, setLoginStatus] = useState('');
   const [isLoginSuccess, setIsLoginSuccess] = useState(false); // Define isLoginSuccess state here
   const { setIsAuthenticated } = useContext(AuthContext); // Use the context
-  const navigate = useNavigate();
-  const handleLogin = async (e) => {
+  const navigate = useNavigate();  const handleLogin = async (e) => {
     e.preventDefault();
-    const formData = new URLSearchParams();
-    formData.append('username', username);
-    formData.append('password', password);
 
     try {
+      // Chiffrement du mot de passe avant envoi
+      const encryptedPassword = encryptPassword(password);
+
       const response = await axios({
         method: 'post',
         url: 'http://localhost:5000/connexion',
-        data: formData.toString(),
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: { username, password: encryptedPassword },
+        headers: { 'Content-Type': 'application/json' },
         withCredentials: true
       });
       // Update login status message

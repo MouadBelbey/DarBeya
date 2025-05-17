@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 import session from "express-session";
 import passport from "passport";
 import { Strategy } from "passport-local";
+import { validatePassword } from './utils/cryptoUtils.js';
 dotenv.config();
 
 const randomImageName = (bytes = 16) =>
@@ -51,6 +52,7 @@ app.use(
 );
 const saltRounds = 10;
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
@@ -529,34 +531,39 @@ app.delete("/accessoire/:id", async (req, res) => {
 
 app.post("/inscription", async (req, res) => {
   let adminID = req.body.username;
-  let adminPassword = req.body.password;
+  let adminPassword = req.body.password; // C'est déjà un mot de passe chiffré côté client
 
-  bcrypt.hash(adminPassword, saltRounds, async (err, hash) => {
-    if (err) {
-      console.error("Erreur lors du hashage du mot de passe", err.stack);
-      res.status(500).send("Erreur lors de l'enregistrement de l'utilisateur");
-      return;
+  try {
+    // Vérifier d'abord si l'utilisateur existe déjà
+    const checkUserQuery = "SELECT COUNT(*) FROM Admin WHERE username = $1";
+    const userCheck = await db.query(checkUserQuery, [adminID]);
+
+    if (userCheck.rows[0].count > 0) {
+      return res.status(409).json({
+        error: "Cet identifiant est déjà utilisé"
+      });
     }
 
-    const insertQuery =
-      "INSERT INTO Admin (username, password) VALUES ($1, $2)";
-    db.query(insertQuery, [adminID, hash], (err, result) => {
-      if (err) {
-        console.error("Erreur lors de l'execution de la requete", err.stack);
-        res
-          .status(500)
-          .send("Erreur lors de l'enregistrement de l'utilisateur");
-        return;
-      }
+    // Si l'utilisateur n'existe pas, insérer le nouvel admin
+    const insertQuery = "INSERT INTO Admin (username, password) VALUES ($1, $2)";
+    const result = await db.query(insertQuery, [adminID, adminPassword]);
 
-      res.status(201).send("Utilisateur enregistré avec succès");
-    });
-  });
+    res.status(201).send("Utilisateur enregistré avec succès");
+  } catch (err) {
+    console.error("Erreur lors de l'execution de la requete", err.stack);
+    res.status(500).send("Erreur lors de l'enregistrement de l'utilisateur");
+  }
 });
 
 app.get("/session-info", (req, res) => {
   if (req.isAuthenticated()) {
-    res.json({ loggedIn: true, user: req.user });
+    // Clone user object and remove sensitive data
+    const safeUser = {
+      admin_id: req.user.admin_id,
+      username: req.user.username,
+      created_at: req.user.created_at
+    };
+    res.json({ loggedIn: true, user: safeUser });
   } else {
     res.json({ loggedIn: false });
   }
@@ -569,12 +576,17 @@ app.post("/connexion", function (req, res, next) {
     }
     if (!user) {
       return res.status(401).json({ error: "failed" });
-    }
-    req.logIn(user, function (err) {
+    }    req.logIn(user, function (err) {
       if (err) {
         return res.status(500).json({ error: err });
       }
-      return res.status(200).json({ status: "succeeded", user: user });
+      // Clone user object and remove sensitive data
+      const safeUser = {
+        admin_id: user.admin_id,
+        username: user.username,
+        created_at: user.created_at
+      };
+      return res.status(200).json({ status: "succeeded", user: safeUser });
     });
   })(req, res, next);
 });
@@ -598,17 +610,13 @@ passport.use(
         const user = selectQuery.rows[0];
         const DBPassword = user.password;
 
-        bcrypt.compare(password, DBPassword, (err, result) => {
-          if (err) {
-            return cb(err);
-          } else {
-            if (result) {
-              return cb(null, user);
-            } else {
-              return cb(null, false);
-            }
-          }
-        });
+        // Comparer directement les mots de passe chiffrés
+        // Le mot de passe envoyé est déjà chiffré par le frontend
+        if (password === DBPassword) {
+          return cb(null, user);
+        } else {
+          return cb(null, false);
+        }
       } else {
         return cb("Utilisateur introuvable !");
       }
@@ -619,11 +627,25 @@ passport.use(
 );
 
 passport.serializeUser((user, cb) => {
-  cb(null, user);
+  // Only serialize the user ID to session
+  cb(null, user.admin_id);
 });
 
-passport.deserializeUser((user, cb) => {
-  cb(null, user);
+passport.deserializeUser(async (id, cb) => {
+  try {
+    // On deserialization, retrieve the user from database without their password
+    const result = await db.query(
+      "SELECT admin_id, username, created_at FROM Admin WHERE admin_id = $1",
+      [id]
+    );
+    if (result.rows.length > 0) {
+      cb(null, result.rows[0]);
+    } else {
+      cb(new Error("User not found"));
+    }
+  } catch (err) {
+    cb(err);
+  }
 });
 
 // Utility endpoint to get image metadata without the binary data
@@ -668,6 +690,48 @@ app.get('/thumbnail/:id', async (req, res) => {
     res.set('Cache-Control', 'public, max-age=1800'); // 30 minutes cache
     res.send(image.image_data);
   });
+});
+
+// Route pour vérifier si des administrateurs existent déjà
+app.get("/check-admin-exists", async (req, res) => {
+  try {
+    const query = "SELECT COUNT(*) FROM Admin";
+    const result = await db.query(query);
+    const adminExists = parseInt(result.rows[0].count) > 0;
+
+    res.json({ adminExists });
+  } catch (err) {
+    console.error("Erreur lors de la vérification des administrateurs:", err.stack);
+    res.status(500).json({ error: "Erreur serveur lors de la vérification des administrateurs" });
+  }
+});
+
+// Route pour la configuration initiale (création du premier administrateur)
+app.post("/setup-initial-admin", async (req, res) => {
+  try {
+    // Vérifier s'il existe déjà des administrateurs
+    const checkQuery = "SELECT COUNT(*) FROM Admin";
+    const checkResult = await db.query(checkQuery);
+
+    // Si des administrateurs existent déjà, refuser la création
+    if (parseInt(checkResult.rows[0].count) > 0) {
+      return res.status(403).json({
+        error: "Des administrateurs existent déjà. La configuration initiale n'est plus disponible."
+      });
+    }
+
+    // Créer le premier administrateur
+    const adminID = req.body.username;
+    const adminPassword = req.body.password; // Déjà chiffré par le client
+
+    const insertQuery = "INSERT INTO Admin (username, password) VALUES ($1, $2)";
+    await db.query(insertQuery, [adminID, adminPassword]);
+
+    res.status(201).json({ message: "Premier administrateur créé avec succès" });
+  } catch (err) {
+    console.error("Erreur lors de la configuration initiale:", err.stack);
+    res.status(500).json({ error: "Erreur serveur lors de la configuration initiale" });
+  }
 });
 
 app.listen(port, () => {

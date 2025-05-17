@@ -9,8 +9,9 @@ import Erreur404 from "./pages/Erreur404/Erreur404";
 import Login from "./pages/Login/Login";
 import Univers from "./pages/Univers/Univers";
 import Upload from "./components/Upload/Upload";
-import Registration from "./pages/Login/registration";
 import Admin from "./pages/Admin/Admin";
+import CreateAdmin from "./pages/Admin/CreateAdmin";
+import InitialSetup from "./pages/Setup/InitialSetup";
 import AjoutRobe from "./pages/AjoutRobe/AjoutRobe";
 import AjoutAccessoire from "./pages/AjoutAccessoire/AjoutAccessoire";
 import ModificationRobe from "./pages/ModificationRobe/ModificationRobe";
@@ -66,14 +67,15 @@ const router = createBrowserRouter([
         <Admin />{" "}
       </PrivateRoute>
     ),
-  },
-  {
+  },  {
     path: "/univers",
     element: <Univers />,
-  },
-  {
-    path: "/inscription",
-    element: <PrivateRoute> <Registration/> </PrivateRoute>,
+  },  {
+    path: "/create-admin",
+    element: <PrivateRoute><CreateAdmin/></PrivateRoute>,
+  },  {
+    path: "/setup",
+    element: <InitialSetup />,
   },
   {
     path: "/upload-robes",

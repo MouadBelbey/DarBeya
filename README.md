@@ -2,6 +2,8 @@
 
 Ce projet est un site web de location de tenues traditionnelles Maghrebines. Il permet aux utilisateurs de louer des tenues traditionnelles maghrebines pour des événements tels que les mariages, les fiançailles, les fêtes, etc. Le projet est développé avec le framework JavaScript React.js pour le front-end et Node.js pour le back-end. Le projet est développé dans le cadre du cours de développement web avancé à l'UQAM.
 
+> **Note importante pour la première utilisation** : Lors de la première installation, vous devrez créer un compte administrateur initial en visitant `/setup` dans votre navigateur (http://localhost:3000/setup). Cette page n'est accessible que si aucun compte administrateur n'existe encore dans le système.
+
 ## Pour Commencer
 
 Ces instructions vous permettront d'obtenir une copie du projet et de le faire fonctionner sur votre machine locale à des fins de développement et de test.
@@ -48,7 +50,24 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
 
 ### Configuration de la Base de Données
 
-s'assurer que le fichier .env se trouve dans le répertoire `darBeya/backend`. Le fichier .env contient les informations de connexion à la base de données PostgreSQL. Ainsi que les informations de connexion au amazon Web Services (AWS S3).
+S'assurer que le fichier .env se trouve dans le répertoire `darBeya/backend`. Le fichier .env contient les informations de connexion à la base de données PostgreSQL.
+
+### Considérations de Sécurité
+
+**Important** : Cette application stocke les images directement dans la base de données PostgreSQL au format BYTEA. Les fonctionnalités d'authentification suivent les bonnes pratiques de sécurité :
+
+1. Mots de passe chiffrés côté client avec SHA-256 avant transmission
+2. Sessions sécurisées avec cookies httpOnly
+3. Données sensibles filtrées des réponses API
+4. Mots de passe invisibles dans les requêtes réseau
+
+**Pour la production** :
+- Activez toujours HTTPS en production en définissant `NODE_ENV=production` dans votre environnement
+- Ne déployez jamais d'informations d'identification dans le code source
+- Utilisez un environnement de production avec CORS correctement configuré
+
+**Note sur les transmissions de données** :
+Comme dans toute application web, les mots de passe sont transmis du client au serveur lors de l'authentification et peuvent être visibles dans les outils de développement Web. C'est pourquoi l'utilisation de HTTPS est cruciale en production.
 ```
 
 ### Exécution de l'Application

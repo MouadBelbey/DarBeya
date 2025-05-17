@@ -186,10 +186,21 @@ const handleModifyAccessoire = (accessoire) => {
               ))}
               </tbody>
             </table>
-            <hr></hr>
-            <div className="button-accessoire">
+            <hr></hr>            <div className="button-accessoire">
               <Link to="/upload-accessoires">
                 <button type="button" className="btn btn-dark">Ajouter un Accessoire</button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Section Gestion des administrateurs */}
+          <hr></hr>
+          <div className="admin-management">
+            <h2 className="admin-titre">Gestion des administrateurs</h2>
+            <div className="mt-4">
+              <p>Vous pouvez créer un nouveau compte administrateur en cliquant sur le bouton ci-dessous :</p>
+              <Link to="/create-admin">
+                <button type="button" className="btn btn-dark">Créer un nouvel administrateur</button>
               </Link>
             </div>
           </div>
